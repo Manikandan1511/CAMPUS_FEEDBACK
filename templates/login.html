@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Campus Pulse</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="login-page-body">
+
+<div class="main-container">
+    <div class="stunning-card login-card">
+        <div class="card-content">
+            <div class="login-icon">🔒</div>
+            <h1>Admin Access</h1>
+            <p>Please enter your credentials</p>
+
+            <form method="POST">
+                <div class="input-box">
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <button type="submit" class="submit-glow-btn">Login to Dashboard</button>
+            </form>
+            <a href="/" class="back-link">← Back to Feedback Form</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

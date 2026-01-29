@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="admin-page">
+
+<div class="top-bar">
+    <h2>Campus Feedback Dashboard</h2>
+    <a href="/logout" class="admin-btn">Logout</a>
+</div>
+
+<div class="dashboard">
+
+{% for event, info in event_summary.items() %}
+<div class="event-card">
+
+    <div class="event-header">
+        <h3>{{ event }}</h3>
+        <div class="event-stats">
+            <span>Total: {{ info.total }}</span>
+            <span>Avg ⭐: {{ info.avg }}</span>
+            <span>🟢 {{ info.pos }} | 🟡 {{ info.neu }} | 🔴 {{ info.neg }}</span>
+        </div>
+        <p class="event-summary">{{ info.summary }}</p>
+    </div>
+
+    <div class="event-body">
+        <div class="chart-box">
+            <canvas id="chart_{{ loop.index }}"></canvas>
+        </div>
+
+        <div class="feedback-list">
+            {% for d in info.rows %}
+            <div class="feedback {{ d[5].lower() }}">
+                <b>{{ d[2] or "Anonymous" }}</b> (⭐ {{ d[3] }})<br>
+                {{ d[4] }}<br>
+                <i>{{ d[5] }}</i>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+<script>
+new Chart(document.getElementById("chart_{{ loop.index }}"), {
+    type: "doughnut",
+    data: {
+        labels: ["Positive", "Neutral", "Negative"],
+        datasets: [{
+            data: [{{ info.pos }}, {{ info.neu }}, {{ info.neg }}],
+            backgroundColor: ["#2ecc71", "#f1c40f", "#e74c3c"]
+        }]
+    },
+    options: {
+        cutout: "65%",
+        plugins: { legend: { position: "bottom" } },
+        animation: { animateScale: true }
+    }
+});
+</script>
+
+{% endfor %}
+
+</div>
+</body>
+</html>

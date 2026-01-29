@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Feedback | Submit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="form-page-body">
+
+<div class="glass-nav">
+    <div class="logo">✨ Campus<span>Pulse</span></div>
+    <a href="/login" class="glass-btn">Admin Portal</a>
+</div>
+
+<div class="main-container">
+    <div class="stunning-card">
+        <div class="card-glow"></div>
+        <div class="card-content">
+            <h1>Event Feedback</h1>
+            <p>Help us improve your campus experience.</p>
+
+            {% if success %}
+            <div class="success-msg animate-pop">
+                🎉 Feedback submitted successfully!
+            </div>
+            {% endif %}
+
+            <form method="POST">
+                <div class="input-box">
+                    <input type="text" name="event" required>
+                    <label>Event Name</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="student">
+                    <label>Your Name (Optional)</label>
+                </div>
+                <div class="input-box">
+                    <select name="rating" required>
+                        <option value="" disabled selected></option>
+                        <option value="5">Excellent ⭐⭐⭐⭐⭐</option>
+                        <option value="4">Very Good ⭐⭐⭐⭐</option>
+                        <option value="3">Average ⭐⭐⭐</option>
+                        <option value="2">Poor ⭐⭐</option>
+                        <option value="1">Bad ⭐</option>
+                    </select>
+                    <label>How was the event?</label>
+                </div>
+                <div class="input-box">
+                    <textarea name="comment" required></textarea>
+                    <label>Share your thoughts...</label>
+                </div>
+                <button type="submit" class="submit-glow-btn">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+/* --- UNIVERSAL STYLES --- */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+
+/* Background for both pages */
+.form-page-body, .login-page-body {
+    background: radial-gradient(circle at 0% 0%, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+}
+
+/* Nav Bar */
+.glass-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 50px; background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.logo { color: white; font-weight: 600; font-size: 1.5rem; }
+.logo span { color: #00d2ff; }
+
+/* Card Styling */
+.main-container { display: flex; justify-content: center; align-items: center; padding: 60px 20px; }
+.stunning-card {
+    position: relative; background: rgba(255, 255, 255, 0.07);
+    border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px); width: 100%; max-width: 450px;
+    padding: 40px; box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.stunning-card h1 { color: #00d2ff; margin: 0; font-size: 2rem; }
+.stunning-card p { color: #a0aec0; margin-bottom: 30px; }
+
+/* Floating Input Style */
+.input-box { position: relative; margin-bottom: 30px; }
+.input-box input, .input-box select, .input-box textarea {
+    width: 100%; padding: 12px; background: none; border: none;
+    border-bottom: 2px solid #4facfe; color: white; font-size: 1rem; outline: none;
+}
+.input-box label {
+    position: absolute; left: 0; top: 12px; color: #a0aec0;
+    pointer-events: none; transition: 0.3s;
+}
+.input-box input:focus ~ label, .input-box input:valid ~ label,
+.input-box select:focus ~ label, .input-box select:valid ~ label,
+.input-box textarea:focus ~ label, .input-box textarea:valid ~ label {
+    top: -15px; font-size: 0.8rem; color: #00d2ff;
+}
+
+/* Stunning Button */
+.submit-glow-btn {
+    width: 100%; padding: 15px; border-radius: 50px; border: none;
+    background: linear-gradient(90deg, #00d2ff, #9d50bb);
+    color: white; font-weight: bold; cursor: pointer;
+    transition: 0.4s; box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+}
+.submit-glow-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.5);
+}
+
+.success-msg {
+    background: rgba(46, 204, 113, 0.2); color: #2ecc71;
+    padding: 15px; border-radius: 12px; margin-bottom: 20px; text-align: center;
+}
+
+.back-link { color: #a0aec0; text-decoration: none; display: block; text-align: center; margin-top: 20px; font-size: 0.9rem; }
+.back-link:hover { color: #00d2ff; }
+
+/* ================= ADMIN DASHBOARD ================= */
+.admin-page {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.admin-page .top-bar {
+    background: rgba(0,0,0,0.35);
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-page .admin-btn {
+    background: #1e90ff;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.admin-page .admin-btn:hover {
+    background: #0b5ed7;
+    transform: scale(1.08);
+}
+
+.admin-page .dashboard {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 35px;
+}
+
+.admin-page .event-card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+    overflow: hidden;
+    transition: 0.4s;
+    animation: fadeInUp 0.6s ease;
+}
+
+.admin-page .event-card:hover {
+    transform: translateY(-10px) scale(1.015);
+}
+
+.admin-page .event-header {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 22px;
+}
+
+.admin-page .event-header h3 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.admin-page .event-stats {
+    margin-top: 10px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+.event-summary {
+    margin-top: 10px;
+    font-style: italic;
+    color: #eee;
+}
+
+.admin-page .event-body {
+    display: flex;
+    gap: 22px;
+    padding: 22px;
+}
+
+.admin-page .chart-box {
+    width: 230px;
+    min-width: 230px;
+}
+
+.admin-page .feedback-list {
+    flex: 1;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.admin-page .feedback {
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: 0.25s;
+}
+
+.admin-page .feedback:hover {
+    transform: scale(1.04);
+}
+
+.admin-page .positive { background: #d1f2eb; border-left: 6px solid #2ecc71; }
+.admin-page .neutral  { background: #fcf3cf; border-left: 6px solid #f1c40f; }
+.admin-page .negative { background: #f9ebea; border-left: 6px solid #e74c3c; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(35px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
